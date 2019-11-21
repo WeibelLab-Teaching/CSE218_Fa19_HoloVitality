@@ -5,9 +5,8 @@ import multiprocessing
 from time import localtime
 import time
 import struct
-import numpy as np
 from multiprocessing import Queue
-
+import json
 
 BUFSIZ = 24
 
@@ -34,23 +33,25 @@ def socket_for_holovitality(port_for_holovitality, q_to_raw_data, filepath):
     tcpClientSock, (addr_from_phone, port1) = sock.accept()
     print(addr_from_phone)
     is_Receiving = True
-    while is_Receiving:
-        try:
-            stream_data = tcpClientSock.recv(BUFSIZ)
-            data = struct.unpack("2d1l", stream_data)
-            heart_rate, variance, timestamp = data
-            timestamp = timestamp // 1000
-            print(heart_rate, variance, timestamp)
-            q_to_raw_data.put(data)
-            # write to file
-            
-        except Exception as e:
-            print(e)
-            tcpClientSock.close()
-            break
-        if data is None:
-            break
-
+    with open(filepath+'data.json', 'a') as f:
+        while is_Receiving:
+            try:
+                stream_data = tcpClientSock.recv(BUFSIZ)
+                data = struct.unpack("2d1l", stream_data)
+                heart_rate, variance, timestamp = data
+                timestamp = timestamp // 1000
+                print(heart_rate, variance, timestamp)
+                q_to_raw_data.put(data)
+                # write to file
+                jsondata = {'timestamp': timestamp, 'heart_rate': heart_rate, 'variance': variance}
+                json.dump(jsondata, f)
+            except Exception as e:
+                print(e)
+                tcpClientSock.close()
+                break
+            if data is None:
+                break
+    f.close()
     sock.close()
 
 def transport(port_for_holelens, q_from_raw_data):
@@ -91,7 +92,7 @@ def transport(port_for_holelens, q_from_raw_data):
 
 
 queue = Queue()
-socket_process = multiprocessing.Process(target=socket_for_holovitality, args=(12345, queue, ''))
+socket_process = multiprocessing.Process(target=socket_for_holovitality, args=(12345, queue, '~/Desktop/'))
 socket_process.start()
 transport_process = multiprocessing.Process(target=transport, args=(12346, queue))
 transport_process.start()
