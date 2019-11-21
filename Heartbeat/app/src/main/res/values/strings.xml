@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Heart Rate Estimation</string>
+    <string name="yString">y</string>
+    <string name="y">Y:</string>
+</resources>
