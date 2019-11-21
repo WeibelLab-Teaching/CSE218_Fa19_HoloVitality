@@ -14,7 +14,7 @@ public class NameInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        placeHolder = "Name: ";
+        placeHolder = "Name: John Doe";
         textM = GetComponent<TextMeshPro>();
         
         textM.text = placeHolder;

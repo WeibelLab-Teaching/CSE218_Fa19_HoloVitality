@@ -12,7 +12,7 @@ public class AgeInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        placeHolder = "Age: ";
+        placeHolder = "Age: 80";
         textM = GetComponent<TextMeshPro>();
         
         textM.text = placeHolder;
