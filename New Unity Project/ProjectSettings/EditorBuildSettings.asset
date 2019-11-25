@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MedicalRecord.unity
     guid: da54242bc40e11c4c9a9b6ee8c32c6df
+  - enabled: 1
+    path: Assets/Scenes/StressLevel.unity
+    guid: 1a7ad2416fe235d479f1499b773cea73
   m_configObjects: {}
