@@ -79,8 +79,8 @@ PluginImporter:
         CPU: AnyCPU
         DontProcess: true
         PlaceholderPath: 
-        SDK: UWP
-        ScriptingBackend: DotNet
+        SDK: AnySDK
+        ScriptingBackend: AnyScriptingBackend
   - first:
       XboxOne: XboxOne
     second:

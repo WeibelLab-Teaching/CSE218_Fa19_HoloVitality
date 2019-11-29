@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class GetIP : MonoBehaviour
 {
     public Transform textMeshObject;
-    private string SERVER_IP = "";
     TextMesh textMesh;
 
     private void Start()
@@ -22,17 +21,16 @@ public class GetIP : MonoBehaviour
               UnityEngine.WSA.Application.InvokeOnAppThread(() =>
               {
                 this.textMesh.text = $"Got result {result} at {DateTime.Now}";
-                SERVER_IP = this.textMesh.text;
-                PlayerPrefs.SetString("SERVER_IP", SERVER_IP);
-                Application.LoadLevel("menuScene");
+                PlayerPrefs.SetString("SERVER_IP", result);
+                SceneManager.LoadScene("menuScene");
               }, 
               false);
             },
             null);
 #endif
-        SERVER_IP = "192.168.1.3";
-        PlayerPrefs.SetString("SERVER_IP", SERVER_IP);
-        SceneManager.LoadScene("menuScene");
+        //string SERVER_IP = "192.168.1.3";
+        //PlayerPrefs.SetString("SERVER_IP", SERVER_IP);
+        //SceneManager.LoadScene("menuScene");
     }
 
     public void OnReset()

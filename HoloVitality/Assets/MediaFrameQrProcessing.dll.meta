@@ -77,10 +77,10 @@ PluginImporter:
       enabled: 1
       settings:
         CPU: AnyCPU
-        DontProcess: true
+        DontProcess: false
         PlaceholderPath: 
-        SDK: UWP
-        ScriptingBackend: DotNet
+        SDK: AnySDK
+        ScriptingBackend: AnyScriptingBackend
   userData: 
   assetBundleName: 
   assetBundleVariant: 
