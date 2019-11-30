@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.Text;
 using System;
 
-public class contentControl : MonoBehaviour
+public class user2contentHR : MonoBehaviour
 {
     private TextMeshPro textM;
     private int heartRate;
@@ -29,7 +29,7 @@ public class contentControl : MonoBehaviour
     {
         heartRate = 90;
         textM = GetComponent<TextMeshPro>();
-        textM.text = "User1\nHR:  --- /min";
+        textM.text = "User2\nHR:  --- /min";
 
         //client = new TcpClient(SERVER_IP, PORT_NO);
         //nwStream = client.GetStream();
@@ -49,7 +49,7 @@ public class contentControl : MonoBehaviour
             {
                 textM.color = new Color32(255, 255, 255, 255);
             }
-            textM.text = "User1\nHR: " + heartRate.ToString() + "/min";
+            textM.text = "User2\nHR: " + heartRate.ToString() + "/min";
 
 
             //byte[] bytesToRead = new byte[BUFFERSIZE];
