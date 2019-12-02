@@ -18,19 +18,20 @@ public class GetIP : MonoBehaviour
         MediaFrameQrProcessing.Wrappers.ZXingQrCodeScanner.ScanFirstCameraForQrCode(
             result =>
             {
-              UnityEngine.WSA.Application.InvokeOnAppThread(() =>
-              {
-                this.textMesh.text = $"Got result {result} at {DateTime.Now}";
-                PlayerPrefs.SetString("SERVER_IP", result);
-                SceneManager.LoadScene("menuScene");
-              }, 
-              false);
+                UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+                {
+                    this.textMesh.text = $"Got result {result} at {DateTime.Now}";
+                    PlayerPrefs.SetString("SERVER_IP", result);
+                    SceneManager.LoadScene("menuScene");
+                },
+                false);
             },
-            null);
+            TimeSpan.FromSeconds(60));
+#else
+        string SERVER_IP = "100.80.231.212";
+        PlayerPrefs.SetString("SERVER_IP", SERVER_IP);
+        SceneManager.LoadScene("menuScene");
 #endif
-        //string SERVER_IP = "192.168.1.3";
-        //PlayerPrefs.SetString("SERVER_IP", SERVER_IP);
-        //SceneManager.LoadScene("menuScene");
     }
 
     public void OnReset()
