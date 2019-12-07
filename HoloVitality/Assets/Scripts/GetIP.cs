@@ -28,15 +28,10 @@ public class GetIP : MonoBehaviour
             },
             TimeSpan.FromSeconds(60));
 #else
-        string SERVER_IP = "100.80.231.212";
+        string SERVER_IP = "100.80.225.222";
         PlayerPrefs.SetString("SERVER_IP", SERVER_IP);
         SceneManager.LoadScene("menuScene");
 #endif
-    }
-
-    public void OnReset()
-    {
-        this.textMesh.text = "say scan or run to start";
     }
     
 }

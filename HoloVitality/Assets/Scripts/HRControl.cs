@@ -33,9 +33,16 @@ public class HRControl : MonoBehaviour
 
         SERVER_IP = PlayerPrefs.GetString("SERVER_IP");
         Debug.Log("HR: " + PORT_NO);
-#if !UNITY_EDITOR
-        client = new TcpClient(SERVER_IP, PORT_NO);
-        nwStream = client.GetStream();
+#if UNITY_EDITOR
+        try
+        {
+            client = new TcpClient(SERVER_IP, PORT_NO);
+            nwStream = client.GetStream();
+        }
+        catch
+        {
+            Debug.Log("socket error");
+        }
 #endif
     }
 
@@ -43,7 +50,7 @@ public class HRControl : MonoBehaviour
     void Update()
     {
         if(Time.time>=nextUpdate){
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
             heartRate = 90 + 4 * nextUpdate % 40;
 
             if (heartRate >= criticalRate)
@@ -59,7 +66,6 @@ public class HRControl : MonoBehaviour
             byte[] bytesToRead = new byte[BUFFERSIZE];
             if (nwStream.DataAvailable) {
                 int numRead = nwStream.Read(bytesToRead, 0, 8);
-                Debug.Log("1234");
 
                 if (numRead == BUFFERSIZE)
                 {
@@ -82,8 +88,4 @@ public class HRControl : MonoBehaviour
 
     }
 
-    //private void OnDestroy()
-    //{
-    //    client.Close();
-    //}
 }
