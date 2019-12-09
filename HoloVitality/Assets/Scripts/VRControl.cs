@@ -33,10 +33,16 @@ public class VRControl : MonoBehaviour
 
         SERVER_IP = PlayerPrefs.GetString("SERVER_IP");
         Debug.Log("VR: " + PORT_NO);
-#if !UNITY_EDITOR
-        client = new TcpClient(SERVER_IP, PORT_NO);
-        nwStream = client.GetStream();
-
+#if UNITY_EDITOR
+        try
+        {
+            client = new TcpClient(SERVER_IP, PORT_NO);
+            nwStream = client.GetStream();
+        }
+        catch
+        {
+            Debug.Log("socket error");
+        }
 #endif
     }
 
@@ -44,7 +50,7 @@ public class VRControl : MonoBehaviour
     void Update()
     {
         if(Time.time>=nextUpdate){
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
             variance = 12 + 3 * nextUpdate % 20;
             if (variance >= criticalRate)
             {
@@ -85,4 +91,10 @@ public class VRControl : MonoBehaviour
         }
         
     }
+
+    //private void OnDestroy()
+    //{
+    //    nwStream.Close();
+    //    client.Close();
+    //}
 }

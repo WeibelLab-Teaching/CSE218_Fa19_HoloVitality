@@ -11,16 +11,11 @@ public class menustart : MonoBehaviour
         SceneManager.LoadScene("HeartBeat");
     }
 
-    public void gotoMedicalRecord()
-    {
-        Debug.Log("change scene to MedicalRecord");
-        SceneManager.LoadScene("MedicalRecord");
-    }
 
-    public void gotoStressLevel()
+    public void gotoAnalysis()
     {
-        Debug.Log("change scene to StressLevel");
-        SceneManager.LoadScene("StressLevel");
+        Debug.Log("change scene to Analysis");
+        SceneManager.LoadScene("Analysis");
     }
 
     public void goBack()
