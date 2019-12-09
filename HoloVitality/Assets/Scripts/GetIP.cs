@@ -28,7 +28,7 @@ public class GetIP : MonoBehaviour
             },
             TimeSpan.FromSeconds(60));
 #else
-        string SERVER_IP = "100.80.225.222";
+        string SERVER_IP = "100.80.227.104";
         PlayerPrefs.SetString("SERVER_IP", SERVER_IP);
         SceneManager.LoadScene("menuScene");
 #endif

@@ -619,7 +619,7 @@ PlayerSettings:
       RemoteSystem: False
       RemovableStorage: True
       SharedUserCertificates: False
-      SpatialPerception: True
+      SpatialPerception: False
       SystemManagement: False
       UserAccountInformation: True
       UserDataTasks: True
