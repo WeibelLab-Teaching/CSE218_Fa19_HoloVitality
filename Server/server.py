@@ -36,72 +36,73 @@ def get_heartbeat_from_client(port_for_holovitality, q_to_HR, q_to_VR, filepath)
     #     q_to_HR.put((heart_rate, timestamp))
     #     q_to_VR.put((variance, timestamp))
 
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    addr = (local_host, port_for_holovitality)
-    sock.bind(addr)
-    sock.listen(2)
+    while True:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        addr = (local_host, port_for_holovitality)
+        sock.bind(addr)
+        sock.listen(2)
 
-    print('Wait for HoloVitality client to connect to heartbeat, port: %d' % (port_for_holovitality))
+        print('Wait for HoloVitality client to connect to heartbeat, port: %d' % (port_for_holovitality))
 
 
-    tcpClientSock, (addr_from_phone, port1) = sock.accept()
-    print("Connected to HR: " + addr_from_phone)
-    is_Receiving = True
+        tcpClientSock, (addr_from_phone, port1) = sock.accept()
+        print("Connected to HR: " + addr_from_phone)
+        is_Receiving = True
 
-    with open(filepath+'data_'+str(port_for_holovitality)+'.json', 'a') as f:
-        while is_Receiving:
-            try:
-                stream_data = tcpClientSock.recv(BUFSIZ)
-                data = struct.unpack("2d1l", stream_data)
-                heart_rate, variance, timestamp = data
-                timestamp = timestamp // 1000
-                print('HR: '+ str(port_for_holovitality))
-                q_to_HR.put((heart_rate, timestamp))
-                q_to_VR.put((variance, timestamp))
-                # write to file
-                jsondata = {'timestamp': timestamp, 'heart_rate': heart_rate, 'variance': variance}
-                f.write(json.dumps(jsondata)+'\n')
+        with open(filepath+'data_'+str(port_for_holovitality)+'.json', 'a') as f:
+            while is_Receiving:
+                try:
+                    stream_data = tcpClientSock.recv(BUFSIZ)
+                    data = struct.unpack("2d1l", stream_data)
+                    heart_rate, variance, timestamp = data
+                    timestamp = timestamp // 1000
+                    print('HR: '+ str(port_for_holovitality))
+                    q_to_HR.put((heart_rate, timestamp))
+                    q_to_VR.put((variance, timestamp))
+                    # write to file
+                    jsondata = {'timestamp': timestamp, 'heart_rate': heart_rate, 'variance': variance}
+                    f.write(json.dumps(jsondata)+'\n')
 
-            except Exception as e:
-                print(e)
-                break
-            if data is None:
-                break
-    f.close()
-    tcpClientSock.close()
-    sock.close()
+                except Exception as e:
+                    print(e)
+                    break
+                if data is None:
+                    break
+        f.close()
+        tcpClientSock.close()
+        sock.close()
 
 def get_medical_from_client(port_for_holovitality, q_to_medical):
     
-    
+    while True:
     # while True:
     #     name = "Jason" + " " * 45
     #     allergy = "Dogs" + " " * 46
     #     age = "24" + " " * 48
     #     q_to_medical.put((name.encode()+allergy.encode()+age.encode()))
     #     print(name.encode()+allergy.encode()+age.encode())
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        addr = (local_host, port_for_holovitality)
+        sock.bind(addr)
+        sock.listen(2)
 
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    addr = (local_host, port_for_holovitality)
-    sock.bind(addr)
-    sock.listen(2)
+        print('Wait for HoloVitality client to connect to medical, port: %d' % (port_for_holovitality))
+        tcpClientSock, (addr_from_phone, port1) = sock.accept()
+        print("Connected to medical: " + addr_from_phone)
 
-    print('Wait for HoloVitality client to connect to medical, port: %d' % (port_for_holovitality))
-    tcpClientSock, (addr_from_phone, port1) = sock.accept()
-    print("Connected to medical: " + addr_from_phone)
 
-    try:
-        stream_data = tcpClientSock.recv(MEDICAL_BUFSIZ)
-        print(stream_data)
-        q_to_medical.put(stream_data)
+        try:
+            stream_data = tcpClientSock.recv(MEDICAL_BUFSIZ)
+            print(stream_data)
+            q_to_medical.put(stream_data)
+        except Exception as e:
+            print(e)
+            break
 
-    except Exception as e:
-        print(e)
-
-    tcpClientSock.close()
-    sock.close()
+        tcpClientSock.close()
+        sock.close()
 
 def transport_HR(port_for_holelens, q_from_HR):
     while True:
