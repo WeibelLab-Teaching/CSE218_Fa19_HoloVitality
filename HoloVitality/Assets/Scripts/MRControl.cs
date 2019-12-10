@@ -31,7 +31,7 @@ public class MRControl : MonoBehaviour
 
         SERVER_IP = PlayerPrefs.GetString("SERVER_IP");
         Debug.Log("MR: " + PORT_NO);
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         try
         {
             client = new TcpClient(SERVER_IP, PORT_NO);
@@ -46,7 +46,7 @@ public class MRControl : MonoBehaviour
 
     void Update()
     {
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         if (callOnce)
         {
             byte[] bytesToRead = new byte[BUFFERSIZE];
@@ -59,6 +59,8 @@ public class MRControl : MonoBehaviour
                     nameStr = data.Substring(0, 50).TrimEnd();
                     ageStr = data.Substring(50, 50).TrimEnd();
                     allergyStr = data.Substring(100, 50).TrimEnd();
+
+                    PlayerPrefs.SetString("user" + PORT_NO, nameStr);
 
                     textM.text = "Name: " + nameStr + "\nAge: " + ageStr + "\nAllergy: " + allergyStr;
                     callOnce = false;

@@ -33,7 +33,7 @@ public class HRControl : MonoBehaviour
 
         SERVER_IP = PlayerPrefs.GetString("SERVER_IP");
         Debug.Log("HR: " + PORT_NO);
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         try
         {
             client = new TcpClient(SERVER_IP, PORT_NO);
@@ -50,7 +50,7 @@ public class HRControl : MonoBehaviour
     void Update()
     {
         if(Time.time>=nextUpdate){
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
             heartRate = 90 + 4 * nextUpdate % 40;
 
             if (heartRate >= criticalRate)
