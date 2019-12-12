@@ -20,133 +20,98 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/AppInfo"
+            android:text="HoloVitaility"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30sp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fadingEdge="none|horizontal|vertical"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark" />
 
 
-                <TextView
-                    android:id="@+id/yInfo"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/NameInfo"
+            android:text="Name:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
 
-            </LinearLayout>
+        <EditText
+            android:id="@+id/Name"
+            android:text="Jason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
 
-            <lecho.lib.hellocharts.view.LineChartView
-                android:id="@+id/linerChart"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
+        <TextView
+            android:id="@+id/AgeInfo"
+            android:text="Age:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+        <EditText
+            android:id="@+id/Age"
+            android:text="24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/AllergyInfo"
+            android:text="Allergy History:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/Allergy"
+            android:text="Dog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/ServerIPInfo"
+            android:text="Server IP:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/ServerIP"
+            android:text="100.80.227.104"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/ServerPortInfo"
+            android:text="Server Port:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/ServerPort"
+            android:text="12345"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
 
 
-                <TextView
-                    android:id="@+id/heartbeatInfo"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:textColor="@android:color/black" />
+        <Button
+            android:id="@+id/buttonSocket"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/buttonshape"
+            android:text="Submit"
+            android:textColor="#000000" />
 
-                <TextView
-                    android:id="@+id/heartbeatVar"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:textColor="@android:color/black" />
 
-            </LinearLayout>
-
-            <lecho.lib.hellocharts.view.LineChartView
-                android:id="@+id/linerChartheartbeat"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
-        </LinearLayout>
     </LinearLayout>
-    <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-        <!--<TextView-->
-            <!--android:id="@+id/authenticationLikelihood"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_width="200dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:textColor="@android:color/black"-->
-            <!--android:text="Authentication Likelihood:"-->
-            <!--android:layout_marginTop="370dp"-->
-            <!--android:layout_alignParentStart="true" />-->
-
-        <!--<TextView-->
-                <!--android:id="@+id/authenticationInfo"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_width="200dp"-->
-                <!--android:layout_weight="1"-->
-                <!--android:textColor="@android:color/black"-->
-                <!--android:layout_below="@+id/progressbar"-->
-                <!--android:layout_alignParentStart="true" />-->
-
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Yes!"-->
-                <!--android:id="@+id/authenticationResult"-->
-                <!--android:layout_weight="1"-->
-                <!--android:textColor="@android:color/holo_green_dark"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:layout_below="@+id/authenticationInfo" />-->
-
-            <!--<com.daimajia.numberprogressbar.NumberProgressBar-->
-                <!--android:id="@+id/progressbar"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_below="@id/authenticationLikelihood"-->
-
-                <!--custom:progress_unreached_color="#CCCCCC"-->
-                <!--custom:progress_reached_color="@android:color/holo_green_dark"-->
-
-                <!--custom:progress_unreached_bar_height="30dp"-->
-                <!--custom:progress_reached_bar_height="30dp"-->
-
-                <!--custom:progress_text_size="20sp"-->
-                <!--custom:progress_text_color="#3498DB"-->
-                <!--custom:progress_text_offset="1dp"-->
-                <!--custom:progress_text_visibility="visible"-->
-
-                <!--custom:progress_max="100"-->
-                <!--custom:progress_current="95"-->
-                <!--/>-->
-        <!--<Button-->
-            <!--android:id="@+id/button1"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:background="@drawable/buttonshape"-->
-            <!--android:layout_below="@id/authenticationResult"-->
-            <!--android:text="Authenticate"-->
-            <!--android:textColor="#000000"-->
-            <!--android:layout_alignParentStart="true" />-->
-        <!--<Button-->
-            <!--android:id="@+id/button2"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:background="@drawable/buttonshape"-->
-            <!--android:text="Stop"-->
-            <!--android:textColor="#000000"-->
-            <!--android:layout_alignParentEnd="true"-->
-            <!--android:layout_below="@id/authenticationResult" />-->
-    </RelativeLayout>
 
 </RelativeLayout>
