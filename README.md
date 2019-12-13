@@ -34,6 +34,9 @@ Our motivations include:
 ---
 
 ## Design
+Our aim is to provide gym coaches with user vital signs including heartbeats and medical history so that coaches will be able to react to potentially dangerous situations caused by over-reaching cardio exercise in real-time.
+Gym coaches are able to see multi-user real-time heart beat rate, heart beat variability, medical history, and heart data analysis through the Hololens.
+
 ### Features
 - Hololens Features: 
   * Recognize the Server IP using QRCode
