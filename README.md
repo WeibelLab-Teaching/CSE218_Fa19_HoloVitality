@@ -35,6 +35,15 @@ Our motivations include:
 
 ## Design
 ### Features
+- Hololens Features: 
+  * Recognize the Server IP using QRCode
+  * Identify different users using Vuforia image recognition
+  * Locate different users position using Vuforia image localization
+  * Receive the HR&HRV data from Server in real-time
+  * Receive the data analysis result from Server
+  * Receive the medical history from Server
+  * Display the data based on the image localization
+  * Display menu UI and back UI
 
 ---
 
