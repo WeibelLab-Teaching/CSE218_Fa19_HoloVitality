@@ -38,6 +38,19 @@ Our aim is to provide gym coaches with user vital signs including heartbeats and
 Gym coaches are able to see multi-user real-time heart beat rate, heart beat variability, medical history, and heart data analysis through the Hololens.
 
 ### Features
+- Smartphone APP Features:
+  * Capture the seismocardiogram (SCG) signals by using the built-in accelerometer 
+  * Segment the SCG signals to get the heartbeat rate (HR) and heartbeat rate variability (HRV) in real-time
+  * Transmit the HR & HRV to Server in real-time
+
+- Server Features:
+  * Receive the HR&HRV data from smartphone in real-time
+  * Transmit the HR&HRV data to Hololens in real-time
+  * Log the HR&HRV data 
+  * Transmit the data analysis result to Hololens
+  * Transmit the medical history to Hololens
+  * Enable multi-user mode
+
 - Hololens Features: 
   * Recognize the Server IP using QRCode
   * Identify different users using Vuforia image recognition
