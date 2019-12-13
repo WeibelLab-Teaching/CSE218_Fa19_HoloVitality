@@ -69,7 +69,8 @@ There are three main parts of the whole system, i.e.
 - the HoloLens app to receive data and display
 
 The diagram of the architecture is shown below
-![Repo List](picutres/system architecture.png)
+
+![Repo List](picutres/SystemArchitecture.png)
 
 ---
 
