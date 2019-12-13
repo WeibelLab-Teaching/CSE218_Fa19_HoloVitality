@@ -70,7 +70,7 @@ There are three main parts of the whole system, i.e.
 
 The diagram of the architecture is shown below
 
-![Repo List](picutres/SystemArchitecture.png)
+![Repo List](pictures/SystemArchitecture.png)
 
 ---
 
