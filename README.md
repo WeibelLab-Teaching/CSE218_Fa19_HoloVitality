@@ -63,6 +63,13 @@ Gym coaches are able to see multi-user real-time heart beat rate, heart beat var
 ---
 
 ## Architecture
+There are three main parts of the whole system, i.e.
+- the smartphone app capturing the vital sign
+- the server to control the data flow
+- the HoloLens app to receive data and display
+
+The diagram of the architecture is shown below
+![Repo List](picutres/system architecture.png)
 
 ---
 
