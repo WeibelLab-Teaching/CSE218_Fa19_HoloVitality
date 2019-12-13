@@ -15,8 +15,6 @@
 - [Usage](#usage)
 - [Tests](#tests)
 - [Team](#team)
-- [FAQ](#faq)
-- [Support](#support)
 - [License](#license)
 
 ---
@@ -73,36 +71,19 @@ The diagram of the architecture is shown below
 ![Repo List](pictures/SystemArchitecture.png)
 
 ### Smartphone App
-The smartphone app has features
-- Capture the seismocardiogram (SCG) signals by using the built-in accelerometer 
-- Segment the SCG signals to get the heartbeat rate (HR) and heartbeat rate variability (HRV) in real-time
-- Transmit the HR & HRV to Server in real-time
+The smartphone app has a diagram flow as
 
 ![Repo List](pictures/SmartphoneFlow.png)
 
 
 ### Server
-The server has features
-- Receive the HR&HRV data from smartphone in real-time
-- Transmit the HR&HRV data to Hololens in real-time
-- Log the HR&HRV data 
-- Transmit the data analysis result to Hololens
-- Transmit the medical history to Hololens
-- Enable multi-user mode
+The server has a diagram flow as
 
 ![Repo List](pictures/ServerFlow.png)
 
 
 ### HoloLens App
-The HoloLens app has features
-- Recognize the Server IP using QRCode
-- Identify different users using Vuforia image recognition
-- Locate different users position using Vuforia image localization
-- Receive the HR&HRV data from Server in real-time
-- Receive the data analysis result from Server
-- Receive the medical history from Server
-- Display the data based on the image localization
-- Display menu UI and back UI
+The HoloLens app has a diagram flow as
 
 ![Repo List](pictures/HololensFlow.png)
 
@@ -115,6 +96,9 @@ The HoloLens app has features
 ---
 
 ## Tests 
+- Real-time test on people: can switch scenes by clicking buttons smoothly, can sample, transmit and update data robustly, even with multiple users.
+- Latency and update frequency: Transmission latency from smartphone through server to HoloLens is about 0.5 second using UCSD-PROTECTED. The updating frequency is about 1 Hz.
+- Intuitive interface: The display will track the user location based on the image recognition and identification. 
 
 ---
 
@@ -123,17 +107,6 @@ The HoloLens app has features
 
 | **Ke Sun**</a> | **Jiayou Guo** | **Yi Xu** | **Yiyun Fan** | **Wenyu Zhang** |
 | :---: |:---:| :---:| :---:| :---:|
-
----
-
-## FAQ
-
----
-
-## Support
-
-Reach out to me at one of the following places!
-- Insert more social links here.
 
 ---
 
