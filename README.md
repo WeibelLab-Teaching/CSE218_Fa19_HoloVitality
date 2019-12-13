@@ -72,6 +72,40 @@ The diagram of the architecture is shown below
 
 ![Repo List](pictures/SystemArchitecture.png)
 
+### Smartphone App
+The smartphone app has features
+- Capture the seismocardiogram (SCG) signals by using the built-in accelerometer 
+- Segment the SCG signals to get the heartbeat rate (HR) and heartbeat rate variability (HRV) in real-time
+- Transmit the HR & HRV to Server in real-time
+
+![Repo List](pictures/SmartphoneFlow.png)
+
+
+### Server
+The server has features
+- Receive the HR&HRV data from smartphone in real-time
+- Transmit the HR&HRV data to Hololens in real-time
+- Log the HR&HRV data 
+- Transmit the data analysis result to Hololens
+- Transmit the medical history to Hololens
+- Enable multi-user mode
+
+![Repo List](pictures/ServerFlow.png)
+
+
+### HoloLens App
+The HoloLens app has features
+- Recognize the Server IP using QRCode
+- Identify different users using Vuforia image recognition
+- Locate different users position using Vuforia image localization
+- Receive the HR&HRV data from Server in real-time
+- Receive the data analysis result from Server
+- Receive the medical history from Server
+- Display the data based on the image localization
+- Display menu UI and back UI
+
+![Repo List](pictures/HololensFlow.png)
+
 ---
 
 ## Usage
