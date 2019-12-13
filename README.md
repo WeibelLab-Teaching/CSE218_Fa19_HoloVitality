@@ -12,7 +12,6 @@
 - [Background](#background)
 - [Design](#design)
 - [Architecture](#architecture)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Tests](#tests)
 - [Team](#team)
@@ -67,10 +66,6 @@ Gym coaches are able to see multi-user real-time heart beat rate, heart beat var
 
 ---
 
-## Installation
-
----
-
 ## Usage
 1. Start Python server
 2. Start smartphone app, and click "Data Transmission" to connect to server
@@ -86,7 +81,6 @@ Gym coaches are able to see multi-user real-time heart beat rate, heart beat var
 
 | **Ke Sun**</a> | **Jiayou Guo** | **Yi Xu** | **Yiyun Fan** | **Wenyu Zhang** |
 | :---: |:---:| :---:| :---:| :---:|
-| <a href="http://github.com/fvcproductions" target="_blank">`Ke Sun`</a> | <a href="http://github.com/fvcproductions" target="_blank">`Jiayou Guo`</a> | <a href="http://github.com/fvcproductions" target="_blank">`Yi Xu`</a> | <a href="http://github.com/fvcproductions" target="_blank">`Yiyun Fan`</a> | <a href="https://github.com/BillBrazerZhang" target="_blank">`BillBrazerZhang`</a> | 
 
 ---
 
